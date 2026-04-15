@@ -1,0 +1,15 @@
+# backend/render.yaml
+services:
+  - type: web
+    name: ai-shopping-agent-backend
+    runtime: python
+    repo: https://github.com/Mahadev-pa/ai-shopping-agent
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.10.0
